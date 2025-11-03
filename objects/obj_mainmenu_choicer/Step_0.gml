@@ -1,10 +1,15 @@
+if (!audio_is_playing(mus_mainmenu)) { 
+    audio_play_sound(mus_mainmenu, 30, true, global.mus_volume);
+}
 
 // Process <Up/Down> Input
 if (keyboard_check_pressed(vk_up)) {
+    audio_play_sound(snd_menu, 10, false, global.snd_volume);
     player_choice -= 1;
 }
 
 if (keyboard_check_pressed(vk_down)) {
+    audio_play_sound(snd_menu, 10, false, global.snd_volume);
     player_choice += 1;
 }
 
@@ -31,6 +36,8 @@ switch (player_choice) {
 
 // Process <Z/Enter> Input
 if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+    audio_play_sound(snd_select, 10, false, global.snd_volume);
+    
     switch (player_choice) {
         case MAIN_MENU.START:
             room_goto(room_floor1_test1);
