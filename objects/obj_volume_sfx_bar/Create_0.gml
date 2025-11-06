@@ -4,3 +4,4 @@ vol_direction = 0;
 show_background = true;
 show_border = true;
 border_length = 3;
+is_editing = false;

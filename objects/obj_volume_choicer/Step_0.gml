@@ -14,7 +14,9 @@ if (selected_volume == VOLUME_CHOICES.NONE) {
     if (player_choice > VOLUME_CHOICES.EXIT) player_choice = VOLUME_CHOICES.SFX;
     if (player_choice < VOLUME_CHOICES.SFX) player_choice = VOLUME_CHOICES.EXIT;
         
-    // Update Choicer
+    // Update Choicers
+    obj_volume_mus_bar.is_editing = false;
+    obj_volume_sfx_bar.is_editing = false;
     obj_volume_sfx_text.selected = false;
     obj_volume_mus_text.selected = false;
     obj_volume_exit_text.selected = false;
@@ -37,10 +39,12 @@ if (selected_volume == VOLUME_CHOICES.NONE) {
             case VOLUME_CHOICES.SFX:
                 selected_volume = VOLUME_CHOICES.SFX;
                 org_volume = global.snd_volume;
+                obj_volume_sfx_bar.is_editing = true;
                 break;
             case VOLUME_CHOICES.MUSIC:
                 selected_volume = VOLUME_CHOICES.MUSIC;
                 org_volume = global.mus_volume;
+                obj_volume_mus_bar.is_editing = true;
                 break;
             case VOLUME_CHOICES.EXIT:
                 room_goto(room_options);
