@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_options_exit_text",
+  "%Name":"obj_volume_sfx_text",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_options_exit_text",
+  "name":"obj_volume_sfx_text",
   "overriddenProperties":[],
   "parent":{
     "name":"volume",
