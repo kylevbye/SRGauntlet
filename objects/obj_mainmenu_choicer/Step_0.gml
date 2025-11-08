@@ -40,7 +40,7 @@ if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
     
     switch (player_choice) {
         case MAIN_MENU.START:
-            room_goto(room_floor1_test1);
+            room_goto(room_floor1_start);
             break;
         case MAIN_MENU.OPTIONS:
             room_goto(room_options);

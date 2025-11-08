@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_tileset_dun1",
-    "path":"sprites/spr_tileset_dun1/spr_tileset_dun1.yy",
+    "name":"spr_tileset_dun1_resized",
+    "path":"sprites/spr_tileset_dun1_resized/spr_tileset_dun1_resized.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -28,10 +28,10 @@
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,
-  "tileHeight":24,
+  "tileHeight":20,
   "tilehsep":0,
   "tilevsep":0,
-  "tileWidth":24,
+  "tileWidth":20,
   "tilexoff":0,
   "tileyoff":0,
   "tile_count":105,

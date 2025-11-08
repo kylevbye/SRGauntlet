@@ -1,7 +1,7 @@
 var _hor = keyboard_check(vk_right) - keyboard_check(vk_left);
 var _ver = keyboard_check(vk_down) - keyboard_check(vk_up);
 
-move_and_collide(_hor * move_speed, _ver* move_speed, tilemap_collide, undefined, undefined, undefined, move_speed, move_speed);
+if (global.interact == 0) move_and_collide(_hor * move_speed, _ver* move_speed, tilemap_collide, undefined, undefined, undefined, move_speed, move_speed);
 
 if (_hor != 0 || _ver !=0) {
     

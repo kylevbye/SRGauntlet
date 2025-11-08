@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"tileset_isle1",
-  "out_columns":12,
+  "out_columns":10,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_tileset_isle1",
-    "path":"sprites/spr_tileset_isle1/spr_tileset_isle1.yy",
+    "name":"spr_tileset_isle1_resized",
+    "path":"sprites/spr_tileset_isle1_resized/spr_tileset_isle1_resized.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -28,11 +28,11 @@
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,
-  "tileHeight":16,
+  "tileHeight":24,
   "tilehsep":0,
   "tilevsep":0,
-  "tileWidth":16,
+  "tileWidth":24,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":156,
+  "tile_count":110,
 }

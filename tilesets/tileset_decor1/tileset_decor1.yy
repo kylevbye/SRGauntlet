@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"tileset_decor1",
-  "out_columns":9,
+  "out_columns":6,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_tileset_decor1",
-    "path":"sprites/spr_tileset_decor1/spr_tileset_decor1.yy",
+    "name":"spr_tileset_decor1_resized",
+    "path":"sprites/spr_tileset_decor1_resized/spr_tileset_decor1_resized.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -28,11 +28,11 @@
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,
-  "tileHeight":16,
+  "tileHeight":20,
   "tilehsep":0,
   "tilevsep":0,
-  "tileWidth":16,
+  "tileWidth":20,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":90,
+  "tile_count":42,
 }
