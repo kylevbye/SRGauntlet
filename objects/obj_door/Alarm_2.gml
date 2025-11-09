@@ -1,2 +1,2 @@
-room_goto(room_next(room));
+room_goto(next_room);
 obj_fader.transitioned = true;

@@ -1,18 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_door_a",
+  "%Name":"obj_marker",
   "eventList":[],
   "managed":true,
-  "name":"obj_door_a",
+  "name":"obj_marker",
   "overriddenProperties":[],
   "parent":{
-    "name":"doors",
-    "path":"folders/Objects/doors.yy",
+    "name":"markers",
+    "path":"folders/Objects/markers.yy",
   },
-  "parentObjectId":{
-    "name":"obj_door",
-    "path":"objects/obj_door/obj_door.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_doorA",
-    "path":"sprites/spr_doorA/spr_doorA.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

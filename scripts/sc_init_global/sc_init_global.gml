@@ -2,7 +2,9 @@ function init_global_values(){
     global.sr_mode = false;
     global.mus_volume = 0.5;
     global.snd_volume = 0.5;
-    global.interact = 0;
+    global.interact = INTERACT.NONE;
+    global.debug = true;
+    global.entrance = ENTRANCE.NONE;
     
     load_config();
 }

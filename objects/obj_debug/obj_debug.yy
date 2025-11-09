@@ -1,18 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_door_a",
-  "eventList":[],
+  "%Name":"obj_debug",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_door_a",
+  "name":"obj_debug",
   "overriddenProperties":[],
   "parent":{
-    "name":"doors",
-    "path":"folders/Objects/doors.yy",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
-  "parentObjectId":{
-    "name":"obj_door",
-    "path":"objects/obj_door/obj_door.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,10 +29,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_doorA",
-    "path":"sprites/spr_doorA/spr_doorA.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

@@ -1,3 +1,10 @@
+// Debug Features
+if (global.debug) {
+    if (keyboard_check_pressed(vk_space)) global.interact = INTERACT.NONE;
+}
+
+
+// Game
 var _hor = keyboard_check(vk_right) - keyboard_check(vk_left);
 var _ver = keyboard_check(vk_down) - keyboard_check(vk_up);
 

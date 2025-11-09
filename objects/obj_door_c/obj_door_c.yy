@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_door_a",
+  "%Name":"obj_door_c",
   "eventList":[],
   "managed":true,
-  "name":"obj_door_a",
+  "name":"obj_door_c",
   "overriddenProperties":[],
   "parent":{
     "name":"doors",
@@ -31,9 +31,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_doorA",
-    "path":"sprites/spr_doorA/spr_doorA.yy",
+    "name":"spr_doorC",
+    "path":"sprites/spr_doorC/spr_doorC.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_doorC",
+    "path":"sprites/spr_doorC/spr_doorC.yy",
+  },
   "visible":true,
 }
