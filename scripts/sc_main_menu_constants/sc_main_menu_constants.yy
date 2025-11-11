@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"sc_menu_constants",
+  "%Name":"sc_main_menu_constants",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"sc_menu_constants",
+  "name":"sc_main_menu_constants",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

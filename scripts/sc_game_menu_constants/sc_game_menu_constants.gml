@@ -1,0 +1,4 @@
+enum GAME_MENU {
+    INVENTORY,
+    STATISTICS
+}

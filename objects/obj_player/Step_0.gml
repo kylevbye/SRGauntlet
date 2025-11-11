@@ -8,9 +8,34 @@ if (global.debug) {
 var _hor = keyboard_check(vk_right) - keyboard_check(vk_left);
 var _ver = keyboard_check(vk_down) - keyboard_check(vk_up);
 
-if (global.interact == 0) move_and_collide(_hor * move_speed, _ver* move_speed, tilemap_collide, undefined, undefined, undefined, move_speed, move_speed);
+if (global.interact == INTERACT.NONE) {
+    move_and_collide(_hor * move_speed, _ver* move_speed, tilemap_collide, undefined, undefined, undefined, move_speed, move_speed);
+}
 
-if (_hor != 0 || _ver !=0) {
+// In Game Menu
+if (keyboard_check_pressed(ord("C")) || keyboard_check_pressed(vk_control)) {
+    if (global.interact == INTERACT.NONE) {
+        global.interact = INTERACT.GAME_MENU;
+    }
+    else if (global.interact == INTERACT.GAME_MENU) {
+        global.interact = INTERACT.NONE;
+    }
+}
+if (global.interact == INTERACT.GAME_MENU) {
+    if (keyboard_check_pressed(vk_down)) global.menu_choicer += 1;
+    else if (keyboard_check_pressed(vk_up)) global.menu_choicer -= 1;
+    // Range Check
+    if (global.menu_choicer > GAME_MENU.STATISTICS) {
+        global.menu_choicer = GAME_MENU.INVENTORY;
+    }
+    else if (global.menu_choicer < GAME_MENU.INVENTORY) {
+        global.menu_choicer = GAME_MENU.STATISTICS;
+    }
+        
+}
+
+// Sprite Update
+if ((_hor != 0 || _ver !=0) && global.interact == INTERACT.NONE) {
     
     if (_hor > 0) sprite_index = spr_player_walk_right; 
     else if (_hor < 0) sprite_index =  spr_player_walk_left;

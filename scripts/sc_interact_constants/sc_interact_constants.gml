@@ -1,5 +1,6 @@
 enum INTERACT {
     NONE,
     INVENTORY,
+    GAME_MENU,
     TRAVEL
 }

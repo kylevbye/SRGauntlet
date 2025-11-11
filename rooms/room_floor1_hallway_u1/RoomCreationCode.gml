@@ -1,4 +1,4 @@
-obj_door_a.next_room = room_intromenu;
+obj_door_a.next_room = room_floor1_intersect_u2;
 obj_door_a.entrance = ENTRANCE.DOWN;
 
 obj_door_b.next_room = room_floor1_start;
