@@ -1,4 +1,19 @@
 enum GAME_MENU {
+    NONE,
     INVENTORY,
     STATISTICS
+}
+
+enum GAME_SUB_MENU_TYPE {
+    NONE,
+    INVENTORY,
+    STATISTICS,
+}
+
+enum GAME_SUB_MENU_CHOICE {
+    FIRST,
+    SECOND,
+    THIRD,
+    FOURTH,
+    FIFTH
 }

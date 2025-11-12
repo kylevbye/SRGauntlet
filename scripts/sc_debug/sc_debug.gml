@@ -8,6 +8,9 @@ function InteractValueToString(_interact_value) {
         case INTERACT.INVENTORY:
             return_str = "INVENTORY";
             break;
+        case INTERACT.STATISTICS:
+            return_str = "STATISTICS";
+            break;
         case INTERACT.GAME_MENU:
             return_str = "MENU"
             break;

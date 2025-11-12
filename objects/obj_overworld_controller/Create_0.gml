@@ -30,5 +30,44 @@ game_menu_spr_alpha = 1;
 hp_label_font = fnt_game_menu;
 hp_label_offset = 10;
 
+// Statistics Rectangle Properties
+game_stats_menu_x = (CONFIG.V_WIDTH*0.5)-(CONFIG.V_WIDTH*0.125);
+game_stats_menu_y = 140;
+game_stats_menu_width = CONFIG.V_WIDTH/3;
+game_stats_menu_height = 300;
+game_stats_menu_rad_x = 10;
+game_stats_menu_rad_y = 10;
+game_stats_menu_outline_color = make_color_rgb(33, 209, 24);
+game_stats_menu_back_color = c_black;
+game_stats_menu_outline_flag = false;
+game_stats_menu_border_size = 5;
+
+// Stats Weapon Sprite
+game_stats_menu_wpn_spr_index = 0;
+game_stats_menu_wpn_spr_y = 205;
+game_stats_menu_wpn_spr_scale_x = 5;
+game_stats_menu_wpn_spr_scale_y = 5;
+game_stats_menu_wpn_spr_rot = 0;
+game_stats_menu_wpn_spr_color = c_white; 
+game_stats_menu_wpn_spr_alpha = 1;
+
+
+// Stats Label
+menu_stats_text_first_offset = 115;
+menu_stats_text_offset = 35;
 
 // Inventory Rectangle Properties
+game_inv_menu_x = (CONFIG.V_WIDTH*0.5)-(CONFIG.V_WIDTH*0.125);
+game_inv_menu_y = 140;
+game_inv_menu_width = CONFIG.V_WIDTH/3;
+game_inv_menu_height = 200;
+game_inv_menu_rad_x = 10;
+game_inv_menu_rad_y = 10;
+game_inv_menu_outline_color = make_color_rgb(33, 209, 24);
+game_inv_menu_back_color = c_black;
+game_inv_menu_outline_flag = false;
+game_inv_menu_border_size = 5;
+
+// INV Label
+menu_inv_text_first_offset = 12.5;
+menu_inv_text_offset = 35;

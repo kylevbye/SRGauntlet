@@ -8,6 +8,9 @@ function init_global_values(){
     global.current_hp = 50;
     global.max_hp = 50;
     global.menu_choicer = GAME_MENU.INVENTORY;
+    global.menu_sub_menu = GAME_SUB_MENU_TYPE.NONE;
+    global.menu_sub_choicer = GAME_SUB_MENU_CHOICE.FIRST;
+    global.weapon = WEAPON.SWORD1;
     
     load_config();
 }

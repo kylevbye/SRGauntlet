@@ -15,10 +15,23 @@ if (global.interact == INTERACT.NONE) {
 // In Game Menu
 if (keyboard_check_pressed(ord("C")) || keyboard_check_pressed(vk_control)) {
     if (global.interact == INTERACT.NONE) {
-        global.interact = INTERACT.GAME_MENU;
+        open_game_menu();
     }
     else if (global.interact == INTERACT.GAME_MENU) {
-        global.interact = INTERACT.NONE;
+        close_game_menu();
+    }
+}
+if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)) {
+    switch (global.interact) {
+    	case INTERACT.GAME_MENU:
+            close_game_menu();
+            break;
+        case INTERACT.INVENTORY:
+            close_inv();
+            break;
+        case INTERACT.STATISTICS:
+            close_stats();
+            break;
     }
 }
 if (global.interact == INTERACT.GAME_MENU) {
@@ -31,7 +44,51 @@ if (global.interact == INTERACT.GAME_MENU) {
     else if (global.menu_choicer < GAME_MENU.INVENTORY) {
         global.menu_choicer = GAME_MENU.STATISTICS;
     }
+    // <Z/Enter>
+    if (has_interacted()) {
+        switch (global.menu_choicer) {
+        	case GAME_MENU.INVENTORY:
+                open_inv();
+                break;
+            case GAME_MENU.STATISTICS:
+                open_stats();
+                break;
+        }
+    }
         
+}
+if (global.interact == INTERACT.STATISTICS) {
+    if (has_cancelled()) {
+        close_stats();
+    }
+    if (has_menu_toggled()) {
+        close_stats();
+        close_game_menu();
+    }
+}
+if (global.interact == INTERACT.INVENTORY) {
+    if (has_pressed_down()) global.menu_sub_choicer += 1;
+    if (has_pressed_up()) global.menu_sub_choicer -= 1;
+    // Range Check
+    if (global.menu_sub_choicer > INVENTORY.SLOT5) {
+        global.menu_sub_choicer = INVENTORY.SLOT1;
+    }
+    else if (global.menu_sub_choicer < INVENTORY.SLOT1) {
+        global.menu_sub_choicer = INVENTORY.SLOT5;
+    }
+    
+    if (has_interacted()) {
+        // WIP
+    }
+        
+    if (has_cancelled()) {
+        close_inv();
+    }
+        
+    if (has_menu_toggled()) {
+        close_inv();
+        close_game_menu();
+    }
 }
 
 // Sprite Update
