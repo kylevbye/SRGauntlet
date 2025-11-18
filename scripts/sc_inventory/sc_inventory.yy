@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"sv_inventory_constants",
+  "%Name":"sc_inventory",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"sv_inventory_constants",
+  "name":"sc_inventory",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

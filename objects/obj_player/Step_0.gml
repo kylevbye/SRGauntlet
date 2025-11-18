@@ -26,24 +26,13 @@ if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)) {
     	case INTERACT.GAME_MENU:
             close_game_menu();
             break;
-        case INTERACT.INVENTORY:
-            close_inv();
-            break;
-        case INTERACT.STATISTICS:
-            close_stats();
-            break;
     }
 }
 if (global.interact == INTERACT.GAME_MENU) {
     if (keyboard_check_pressed(vk_down)) global.menu_choicer += 1;
     else if (keyboard_check_pressed(vk_up)) global.menu_choicer -= 1;
     // Range Check
-    if (global.menu_choicer > GAME_MENU.STATISTICS) {
-        global.menu_choicer = GAME_MENU.INVENTORY;
-    }
-    else if (global.menu_choicer < GAME_MENU.INVENTORY) {
-        global.menu_choicer = GAME_MENU.STATISTICS;
-    }
+    global.menu_choicer = menu_range_check(global.menu_choicer, GAME_MENU.INVENTORY, GAME_MENU.STATISTICS, false);
     // <Z/Enter>
     if (has_interacted()) {
         switch (global.menu_choicer) {
@@ -67,28 +56,24 @@ if (global.interact == INTERACT.STATISTICS) {
     }
 }
 if (global.interact == INTERACT.INVENTORY) {
-    if (has_pressed_down()) global.menu_sub_choicer += 1;
-    if (has_pressed_up()) global.menu_sub_choicer -= 1;
-    // Range Check
-    if (global.menu_sub_choicer > INVENTORY.SLOT5) {
-        global.menu_sub_choicer = INVENTORY.SLOT1;
+    switch (global.inv_state) {
+        case INVENTORY_STATE.OPEN:
+            if (has_pressed_down()) global.menu_sub_choicer += 1;
+            if (has_pressed_up()) global.menu_sub_choicer -= 1;
+            global.menu_sub_choicer = menu_range_check(global.menu_sub_choicer, INVENTORY.SLOT1, INVENTORY.SLOT5, false);
+            if (has_interacted()) open_inv_item();
+            if (has_cancelled()) close_inv(); 
+            break;
+        case INVENTORY_STATE.ITEM:
+            if (has_pressed_right()) global.item_choicer += 1;
+            if (has_pressed_left()) global.item_choicer -= 1;
+            global.item_choicer = menu_range_check(global.item_choicer, ITEM_CHOICE.USE, ITEM_CHOICE.DROP, false);    
+            if (has_interacted()) process_item_choice();
+            if (has_cancelled()) close_inv_item();
+            break;
+    	
     }
-    else if (global.menu_sub_choicer < INVENTORY.SLOT1) {
-        global.menu_sub_choicer = INVENTORY.SLOT5;
-    }
-    
-    if (has_interacted()) {
-        // WIP
-    }
-        
-    if (has_cancelled()) {
-        close_inv();
-    }
-        
-    if (has_menu_toggled()) {
-        close_inv();
-        close_game_menu();
-    }
+
 }
 
 // Sprite Update

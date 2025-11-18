@@ -10,6 +10,9 @@ function init_global_values(){
     global.menu_choicer = GAME_MENU.INVENTORY;
     global.menu_sub_menu = GAME_SUB_MENU_TYPE.NONE;
     global.menu_sub_choicer = GAME_SUB_MENU_CHOICE.FIRST;
+    global.inventory = pointer_null;
+    global.inv_state = INVENTORY_STATE.CLOSED;
+    global.item_choicer = ITEM_CHOICE.NONE;
     global.weapon = WEAPON.SWORD1;
     
     load_config();

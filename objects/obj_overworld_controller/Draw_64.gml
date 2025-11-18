@@ -95,8 +95,11 @@ if (menu_open_flag()) {
         // Text Options
         draw_set_halign(fa_center);
         draw_set_font(menu_text_font);
-        for (var i = 0; i<5; i += 1) {
-            var inv_slots_str = string("Slot {0}", i);
+        for (var i = 0; i<INVENTORY.LENGTH; i += 1) {
+            var inv_slots_str = "---"; //string("Slot {0}", i);
+            if (global.inventory[i] != ITEM.NONE) {
+                inv_slots_str = item_to_string(global.inventory[i]);
+            }
             draw_set_color(c_white);
             if (i == global.menu_sub_choicer) draw_set_color(menu_text_select_color);
             draw_text(center_inv_menu_x, game_inv_menu_y+menu_inv_text_first_offset + (menu_inv_text_offset*i), inv_slots_str);
@@ -104,6 +107,34 @@ if (menu_open_flag()) {
 
     }
     
+    ///
+    /// ITEM
+    /// 
+    if (global.inv_state == INVENTORY_STATE.ITEM) {
+        var center_item_menu_x = game_item_menu_x+(game_item_menu_width*0.5);
+        // Inner
+        draw_roundrect_color_ext(game_item_menu_x, game_item_menu_y, game_item_menu_x+game_item_menu_width, 
+        game_item_menu_y+game_item_menu_height, game_item_menu_rad_x, game_item_menu_rad_y, game_item_menu_outline_color, 
+        game_item_menu_outline_color, game_item_menu_outline_flag);
+    
+        // Outer
+        draw_roundrect_color_ext(game_item_menu_x+game_item_menu_border_size, game_item_menu_y+game_item_menu_border_size, 
+        game_item_menu_x+game_item_menu_width-game_item_menu_border_size, game_item_menu_y+game_item_menu_height-game_item_menu_border_size, 
+        game_item_menu_rad_x, game_item_menu_rad_y, game_item_menu_back_color, game_item_menu_back_color, game_item_menu_outline_flag);
+        
+        // Text Options
+        draw_set_halign(fa_center);
+        draw_set_font(menu_text_font); 
+        if (global.item_choicer == ITEM_CHOICE.USE) draw_set_color(c_yellow);
+        else draw_set_color(c_white);
+        draw_text(center_item_menu_x-game_item_menu_item_offset_x+4, game_item_menu_item_offset_y, "USE");
+        if (global.item_choicer == ITEM_CHOICE.INFO) draw_set_color(c_yellow);
+        else draw_set_color(c_white);
+        draw_text(center_item_menu_x-3, game_item_menu_item_offset_y, "INFO");
+        if (global.item_choicer == ITEM_CHOICE.DROP) draw_set_color(c_yellow);
+        else draw_set_color(c_white);
+        draw_text(center_item_menu_x+game_item_menu_item_offset_x-3, game_item_menu_item_offset_y, "DROP");
+    }
 }
 
 // Reset

@@ -27,3 +27,18 @@ function has_pressed_right() {
 function has_pressed_down() {
     return keyboard_check_pressed(vk_down);
 }
+
+function clear_interact_input() {
+    keyboard_clear(ord("Z"));
+    keyboard_clear(vk_escape);
+}
+
+function clear_cancel_input() {
+    keyboard_clear(ord("X"));
+    keyboard_clear(vk_shift);
+}
+
+function clear_menu_input() {
+    keyboard_clear(ord("C"));
+    keyboard_clear(vk_control);
+}

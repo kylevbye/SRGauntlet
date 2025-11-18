@@ -68,6 +68,20 @@ game_inv_menu_back_color = c_black;
 game_inv_menu_outline_flag = false;
 game_inv_menu_border_size = 5;
 
+// Item Rectangle Properties
+game_item_menu_x = (CONFIG.V_WIDTH*0.5)-(CONFIG.V_WIDTH*0.125);
+game_item_menu_y = 350;
+game_item_menu_width = CONFIG.V_WIDTH/3;
+game_item_menu_height = 50;
+game_item_menu_rad_x = 10;
+game_item_menu_rad_y = 10;
+game_item_menu_outline_color = make_color_rgb(33, 209, 24);
+game_item_menu_back_color = c_black;
+game_item_menu_outline_flag = false;
+game_item_menu_border_size = 5;
+game_item_menu_item_offset_x = 70;
+game_item_menu_item_offset_y = game_item_menu_y+(game_item_menu_height*0.18);
+
 // INV Label
 menu_inv_text_first_offset = 12.5;
 menu_inv_text_offset = 35;

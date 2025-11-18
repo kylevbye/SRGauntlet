@@ -3,5 +3,6 @@ enum INTERACT {
     INVENTORY,
     STATISTICS,
     GAME_MENU,
-    TRAVEL
+    TRAVEL,
+    POSTCARD
 }
