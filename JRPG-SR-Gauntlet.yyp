@@ -100,6 +100,7 @@
     {"id":{"name":"obj_volume_title_text","path":"objects/obj_volume_title_text/obj_volume_title_text.yy",},},
     {"id":{"name":"obj_writer","path":"objects/obj_writer/obj_writer.yy",},},
     {"id":{"name":"obj_writercreator","path":"objects/obj_writercreator/obj_writercreator.yy",},},
+    {"id":{"name":"room_battle","path":"rooms/room_battle/room_battle.yy",},},
     {"id":{"name":"room_floor1_hallway_u1","path":"rooms/room_floor1_hallway_u1/room_floor1_hallway_u1.yy",},},
     {"id":{"name":"room_floor1_intersect_u2","path":"rooms/room_floor1_intersect_u2/room_floor1_intersect_u2.yy",},},
     {"id":{"name":"room_floor1_start","path":"rooms/room_floor1_start/room_floor1_start.yy",},},
@@ -186,6 +187,7 @@
     {"roomId":{"name":"room_intromenu","path":"rooms/room_intromenu/room_intromenu.yy",},},
     {"roomId":{"name":"room_floor1_hallway_u1","path":"rooms/room_floor1_hallway_u1/room_floor1_hallway_u1.yy",},},
     {"roomId":{"name":"room_floor1_intersect_u2","path":"rooms/room_floor1_intersect_u2/room_floor1_intersect_u2.yy",},},
+    {"roomId":{"name":"room_battle","path":"rooms/room_battle/room_battle.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
