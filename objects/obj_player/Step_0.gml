@@ -1,6 +1,8 @@
 // Debug Features
 if (global.debug) {
     if (keyboard_check_pressed(vk_space)) global.interact = INTERACT.NONE;
+        
+    if (keyboard_check_pressed(ord("M"))) room_goto(room_battle);
 }
 
 
@@ -8,9 +10,21 @@ if (global.debug) {
 var _hor = keyboard_check(vk_right) - keyboard_check(vk_left);
 var _ver = keyboard_check(vk_down) - keyboard_check(vk_up);
 
-if (global.interact == INTERACT.NONE) {
+// Movement
+var _prev_x = x;
+var _prev_y = y;
+if (global.interact == INTERACT.NONE) { 
     move_and_collide(_hor * move_speed, _ver* move_speed, tilemap_collide, undefined, undefined, undefined, move_speed, move_speed);
 }
+
+// Face State
+is_moving = true;
+if (_prev_x > x) facing_direction = DIRECTION.LEFT;
+else if (_prev_x < x) facing_direction = DIRECTION.RIGHT;
+else if (_prev_y > y) facing_direction = DIRECTION.UP;
+else if (_prev_y < y) facing_direction = DIRECTION.DOWN;
+    
+else is_moving = false;
 
 // In Game Menu
 if (keyboard_check_pressed(ord("C")) || keyboard_check_pressed(vk_control)) {
@@ -74,31 +88,4 @@ if (global.interact == INTERACT.INVENTORY) {
     	
     }
 
-}
-
-// Sprite Update
-if ((_hor != 0 || _ver !=0) && global.interact == INTERACT.NONE) {
-    
-    if (_hor > 0) sprite_index = spr_player_walk_right; 
-    else if (_hor < 0) sprite_index =  spr_player_walk_left;
-    else if (_ver > 0) sprite_index = spr_player_walk_down; 
-    else if (_ver < 0) sprite_index = spr_player_walk_up;
-}
-else {
-    
-    switch (sprite_index) {
-        case spr_player_walk_up:
-            sprite_index = spr_player_idle_up;
-            break;
-        case spr_player_walk_right:
-            sprite_index = spr_player_idle_right;
-            break;
-        case spr_player_walk_left:
-            sprite_index = spr_player_idle_left;
-            break;
-        case spr_player_walk_down:
-            sprite_index = spr_player_idle_down;
-            break;
-    }
-    
 }
