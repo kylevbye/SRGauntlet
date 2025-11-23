@@ -14,7 +14,7 @@ function init_global_values(){
     global.inv_state = INVENTORY_STATE.CLOSED;
     global.item_choicer = ITEM_CHOICE.NONE;
     global.weapon = WEAPON.SWORD1;
-    
+    global.enemy = new Test();
     load_config();
 }
 
