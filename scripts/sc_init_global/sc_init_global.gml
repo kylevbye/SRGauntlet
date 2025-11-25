@@ -7,6 +7,8 @@ function init_global_values(){
     global.entrance = ENTRANCE.NONE;
     global.current_hp = 50;
     global.max_hp = 50;
+    global.current_mp = 50;
+    global.max_mp = 50;
     global.menu_choicer = GAME_MENU.INVENTORY;
     global.menu_sub_menu = GAME_SUB_MENU_TYPE.NONE;
     global.menu_sub_choicer = GAME_SUB_MENU_CHOICE.FIRST;
@@ -15,6 +17,7 @@ function init_global_values(){
     global.item_choicer = ITEM_CHOICE.NONE;
     global.weapon = WEAPON.SWORD1;
     global.enemy = new Test();
+    global.battle_state = pointer_null;
     load_config();
 }
 

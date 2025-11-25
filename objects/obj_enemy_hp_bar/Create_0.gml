@@ -1,0 +1,11 @@
+width = 200;
+height = 20;
+current_value = 100;
+max_value = 100;
+back_color = c_black;
+min_color = c_red;
+max_color = c_green;
+direction_val = 0;
+show_back = true;
+show_border = true;
+centered = true;

@@ -3,8 +3,11 @@ enum BATTLE {
     ENEMY,
     ENEMY_ATTACK,
     FIGHT,
+    FIGHT_APPLY,
     SUPER,
-    HEAL
+    HEAL,
+    VICTOR,
+    LOSS
 }
 
 enum BATTLE_OPTIONS {
@@ -22,11 +25,13 @@ function BattleControlState() constructor {
     player_select_sub = BATTLE_OPTIONS.NONE;
     weapon = global.weapon;
     enemy = global.enemy;
+    attack_started = false;
+    attack_damage = 0;
 }
 function Test() constructor  {
     obj = obj_enemy;
     name = "Test";
     hp = 100;
-    attack = 5;
+    attack = 2;
     defense = 5;
 }
