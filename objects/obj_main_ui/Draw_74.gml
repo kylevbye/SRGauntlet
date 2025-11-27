@@ -27,7 +27,7 @@ draw_set_font(fnt_battle_amount);
 draw_text(x+(button_length*0.25), stat_amt_label_y, string("{0}/{1}", global.current_hp, global.max_hp));
 // Hp Bar
 draw_healthbar(x+16-1, y+button_height-8, x+stat_bar_length-4, y+button_height-stat_bar_height-12, 
-round((global.current_hp/global.max_hp)*100), c_red, c_red, c_green, 0, true, true);
+round((global.current_hp/global.max_hp)*100), back_color, c_red, c_green, 0, true, true);
 
 ///
 /// Magic Points
@@ -43,7 +43,15 @@ draw_set_font(fnt_battle_amount);
 draw_text(x+(button_length*0.75)+4, stat_amt_label_y, string("{0}/{1}", global.current_mp, global.max_mp));
 // MP Bar
 draw_healthbar(x+16-1+(button_length*0.5)+5, y+button_height-8, x+stat_bar_length-4+(button_length*0.5)+6, 
-y+button_height-stat_bar_height-12, round((global.current_mp/global.max_mp)*100), c_red, c_red, c_green, 0, true, true);
+y+button_height-stat_bar_height-12, round((global.current_mp/global.max_mp)*100), back_color, c_blue, c_purple, 0, true, true);
+
+///
+/// Dialogue Box
+/// 
+
+
+// Inner (Black)
+
 
 /// Reset
 draw_set_color(c_white);

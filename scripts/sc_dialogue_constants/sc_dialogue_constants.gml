@@ -1,0 +1,7 @@
+enum DIALOGUE {
+    BORDER = 4,
+    BORDER_COLOR_R = 33,
+    BORDER_COLOR_G = 209,
+    BORDER_COLOR_B = 24, 
+    RAD = 10.0
+}

@@ -18,6 +18,7 @@ function init_global_values(){
     global.weapon = WEAPON.SWORD1;
     global.enemy = new Test();
     global.battle_state = pointer_null;
+    global.diag_rad = 10;
     load_config();
 }
 

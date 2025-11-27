@@ -21,3 +21,16 @@ hp_label_offset_x = button_length*0.25;
 
 // MP
 mp_label_offset_x = button_length*0.75;
+
+// Dialogue Box
+diag_x = CONFIG.V_WIDTH*0.5;
+diag_y = CONFIG.V_HEIGHT*0.5;
+diag_w = 400;
+diag_h = 150;
+diag_x1 = diag_x - (diag_w*0.5);
+diag_x2 = diag_x + (diag_w*0.5);
+diag_y1 = diag_y - (diag_h*0.5);
+diag_y2 = diag_y + (diag_h*0.5);
+diag_back_color = c_black;
+diag_border_color = c_red;
+diag_border_length = 3;
