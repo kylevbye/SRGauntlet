@@ -4,5 +4,6 @@ enum INTERACT {
     STATISTICS,
     GAME_MENU,
     TRAVEL,
+    DIALOGUE,
     POSTCARD
 }
