@@ -17,6 +17,12 @@ function InteractValueToString(_interact_value) {
         case INTERACT.TRAVEL:
             return_str = "TRAVEL";
             break;
+        case INTERACT.DIALOGUE:
+            return_str = "DIALOGUE";
+            break;
+        case INTERACT.POSTCARD:
+            return_str = "POSTCARD";
+            break;
         default:
             return_str = "ERROR";
             break;

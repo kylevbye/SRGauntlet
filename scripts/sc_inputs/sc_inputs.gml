@@ -30,7 +30,7 @@ function has_pressed_down() {
 
 function clear_interact_input() {
     keyboard_clear(ord("Z"));
-    keyboard_clear(vk_escape);
+    keyboard_clear(vk_enter);
 }
 
 function clear_cancel_input() {
