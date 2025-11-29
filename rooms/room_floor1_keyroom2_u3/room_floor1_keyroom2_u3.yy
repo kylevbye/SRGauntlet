@@ -46,8 +46,8 @@
   ],
   "name":"room_floor1_keyroom2_u3",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"floor1",
+    "path":"folders/Rooms/floor1.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

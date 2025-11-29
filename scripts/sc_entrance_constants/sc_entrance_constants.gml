@@ -3,5 +3,9 @@ enum ENTRANCE {
     LEFT,
     UP,
     RIGHT,
-    DOWN
+    DOWN,
+    A,
+    B,
+    C,
+    D
 }

@@ -55,8 +55,8 @@
   ],
   "name":"room_floor1_sword1_u2r1",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"floor1",
+    "path":"folders/Rooms/floor1.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

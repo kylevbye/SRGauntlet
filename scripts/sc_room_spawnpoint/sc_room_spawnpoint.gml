@@ -35,6 +35,34 @@ function teleport_player_to_marker(){
                     teleported = true;
                 }
                 break;
+            case ENTRANCE.A:
+                if (instance_exists(obj_marker_a)) {
+                    new_x = obj_marker_a.x;
+                    new_y = obj_marker_a.y;
+                    teleported = true;
+                }
+                break;
+            case ENTRANCE.B:
+                if (instance_exists(obj_marker_b)) {
+                    new_x = obj_marker_b.x;
+                    new_y = obj_marker_b.y;
+                    teleported = true;
+                }
+                break;
+            case ENTRANCE.C:
+                if (instance_exists(obj_marker_c)) {
+                    new_x = obj_marker_c.x;
+                    new_y = obj_marker_c.y;
+                    teleported = true;
+                }
+                break;
+            case ENTRANCE.D:
+                if (instance_exists(obj_marker_d)) {
+                    new_x = obj_marker_d.x;
+                    new_y = obj_marker_d.y;
+                    teleported = true;
+                }
+                break;
         }
         
         if (teleported) {

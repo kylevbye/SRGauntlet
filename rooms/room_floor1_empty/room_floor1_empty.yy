@@ -26,8 +26,8 @@
   ],
   "name":"room_floor1_empty",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"floor1",
+    "path":"folders/Rooms/floor1.yy",
   },
   "parentRoom":null,
   "physicsSettings":{
