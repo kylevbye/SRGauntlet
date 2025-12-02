@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"snd_select",
   "audioGroupId":{
     "name":"ag_sfx",
     "path":"audiogroups/ag_sfx",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":0,
   "compression":0,
+  "compressionQuality":4,
   "conversionMode":0,
   "duration":0.18716553,
+  "exportDir":"",
   "name":"snd_select",
   "parent":{
     "name":"Sounds",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"snd_select.wav",
-  "type":0,
   "volume":1.0,
 }

@@ -1,1 +1,1 @@
-global.interact = INTERACT.NONE;
+restore_interact_state();

@@ -23,3 +23,7 @@ text_sound = snd_text_default;
 font = fnt_dialogue;
 
 alarm[0] = text_delay;
+
+restore_interact_state = function() {
+    global.interact = INTERACT.NONE;
+};

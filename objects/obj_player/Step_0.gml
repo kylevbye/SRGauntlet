@@ -80,7 +80,9 @@ if (global.interact == INTERACT.INVENTORY) {
             if (has_pressed_down()) global.menu_sub_choicer += 1;
             if (has_pressed_up()) global.menu_sub_choicer -= 1;
             global.menu_sub_choicer = menu_range_check(global.menu_sub_choicer, INVENTORY.SLOT1, INVENTORY.SLOT5, false);
-            if (has_interacted()) open_inv_item();
+            if (has_interacted() && global.inventory[global.menu_sub_choicer] != ITEM.NONE) {
+                open_inv_item();
+            }
             if (has_cancelled()) close_inv(); 
             break;
         case INVENTORY_STATE.ITEM:
