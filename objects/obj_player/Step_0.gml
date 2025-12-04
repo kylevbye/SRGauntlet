@@ -28,11 +28,10 @@ if (_prev_x > x) facing_direction = DIRECTION.LEFT;
 else if (_prev_x < x) facing_direction = DIRECTION.RIGHT;
 else if (_prev_y > y) facing_direction = DIRECTION.UP;
 else if (_prev_y < y) facing_direction = DIRECTION.DOWN;
-    
 else is_moving = false;
 
 // In Game Menu
-if (keyboard_check_pressed(ord("C")) || keyboard_check_pressed(vk_control)) {
+if (has_menu_toggled()) {
     if (global.interact == INTERACT.NONE) {
         open_game_menu();
     }
@@ -40,7 +39,7 @@ if (keyboard_check_pressed(ord("C")) || keyboard_check_pressed(vk_control)) {
         close_game_menu();
     }
 }
-if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)) {
+if (has_cancelled()) {
     switch (global.interact) {
     	case INTERACT.GAME_MENU:
             close_game_menu();

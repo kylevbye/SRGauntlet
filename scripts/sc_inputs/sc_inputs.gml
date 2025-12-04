@@ -2,14 +2,26 @@ function has_interacted() {
     return keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter);
 }
 
+function interact_held() {
+    return keyboard_check(ord("Z")) || keyboard_check(vk_enter);
+}
+
 function has_cancelled() {
     return keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift);
+}
+
+function cancel_held() {
+    return keyboard_check(ord("X")) || keyboard_check(vk_shift);
 }
 
 function has_skipped () { return has_cancelled(); }
 
 function has_menu_toggled() {
     return keyboard_check_pressed(ord("C")) || keyboard_check_pressed(vk_control);
+}
+
+function menu_held() {
+    return keyboard_check(ord("C")) || keyboard_check(vk_control);
 }
 
 function has_pressed_up() {

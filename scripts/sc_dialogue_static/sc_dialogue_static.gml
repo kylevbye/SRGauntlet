@@ -17,6 +17,7 @@ function create_general_dialogue() {
             "This is the second line.",
             "And finally, the third!"
         ]
+        
     }
     
     return gen_diag_struct;

@@ -1,3 +1,3 @@
 using = true;
 global.interact = INTERACT.POSTCARD;
-clear_interact_input();
+//clear_interact_input();
