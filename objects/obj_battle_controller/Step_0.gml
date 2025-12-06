@@ -12,6 +12,12 @@ switch (global.battle_state.turn) {
     case BATTLE.ENEMY:
         process_enemy_turn();
         break;
+    case BATTLE.ENEMY_ATTACK_DIAG:
+        inform_enemy_attack();
+        break;
+    case BATTLE.ENEMY_ATTACK_WAIT:
+        // Do nothing until dialogue is done.
+        break;
     case BATTLE.ENEMY_ATTACK:
         process_enemy_attack();
         break;

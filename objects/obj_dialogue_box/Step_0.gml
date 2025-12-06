@@ -12,6 +12,6 @@ if (has_interacted() && char_pos >= string_length(script[line])) {
     }
     alarm[0] = text_delay;
     
-    clear_interact_input();
+    //clear_interact_input();
 }
 

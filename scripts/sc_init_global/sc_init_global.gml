@@ -20,6 +20,7 @@ function init_global_values(){
     global.battle_state = pointer_null;
     global.dialogue = "";
     global.diag_rad = 10;
+    global.counter = 0;
     
     load_config();
     instantiate_dialogue();

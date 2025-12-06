@@ -1,0 +1,11 @@
+active = false;
+select_color = c_yellow;
+width = 100;
+height = 100;
+border_color = make_color_rgb(33, 209, 24);
+border_length = 4;
+rad_x = 10
+rad_y = 10
+back_color = c_black;
+outline_flag= false;
+angle = 0;

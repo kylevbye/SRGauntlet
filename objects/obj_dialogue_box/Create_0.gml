@@ -13,7 +13,7 @@ diag_border_color = make_color_rgb(DIALOGUE.BORDER_COLOR_R, DIALOGUE.BORDER_COLO
 diag_border_length = DIALOGUE.BORDER;
 
 // Writer
-script = ["This is the default line", "This is the another one", "If you are seeing this, something went wrong."];
+script = ["This is the default line", "This is the another one", "If you are seeing this, I forgot to change the script of this instance."];
 char_pos = 0;
 line = 0;
 text_delay = 2;
@@ -27,3 +27,5 @@ alarm[0] = text_delay;
 restore_interact_state = function() {
     global.interact = INTERACT.NONE;
 };
+
+queued_event = function() {}

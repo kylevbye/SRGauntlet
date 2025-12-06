@@ -1,0 +1,10 @@
+font = fnt_damage;
+duration = 15;
+centered = true;
+number = 0;
+scale = 1.5;
+sep = 10;
+width = 99999;
+angle = 0;
+color = c_red;
+alpha = 1;

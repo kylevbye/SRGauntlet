@@ -31,3 +31,52 @@ function InteractValueToString(_interact_value) {
     return return_str;
 
 }
+
+function BattleToString(_battle_value) {
+    
+    return_str = "";
+
+    switch (_battle_value) {
+        case BATTLE.PLAYER:
+            return_str = "PLAYER";
+            break;
+        case BATTLE.ENEMY:
+            return_str = "ENEMY";
+            break;
+        case BATTLE.ENEMY_ATTACK_DIAG:
+            return_str = "ENEMY_ATTACK_DIAG";
+            break;
+        case BATTLE.ENEMY_ATTACK_WAIT:
+            return_str = "ENEMY_ATTACK_WAIT"
+            break;
+        case BATTLE.ENEMY_ATTACK:
+            return_str = "ENEMY_ATTACK";
+            break;
+        case BATTLE.FIGHT_INIT:
+            return_str = "FIGHT_INIT";
+            break;
+        case BATTLE.FIGHT:
+            return_str = "FIGHT";
+            break;
+        case BATTLE.FIGHT_WAIT:
+            return_str = "FIGHT_WAIT";
+            break;
+        case BATTLE.FIGHT_APPLY:
+            return_str = "FIGHT_APPLY";
+            break;
+        case BATTLE.SUPER:
+            return_str = "SUPER";
+            break;
+        case BATTLE.VICTOR:
+            return_str = "VICTOR";
+            break;
+        case BATTLE.LOSS:
+            return_str = "LOSS";
+            break;
+        default:
+            return_str = "ERROR";
+            break;
+    }
+    
+    return return_str;
+}
