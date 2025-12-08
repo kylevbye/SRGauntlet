@@ -1,5 +1,9 @@
+function init_battle() {
+    play_bat_music();
+    change_turn(BATTLE.PLAYER);
+}
+
 function process_player_turn(){
-    show_debug_message(battle_state_to_string());
     
     if (global.battle_state.player_select_main == BATTLE_OPTIONS.NONE) {
         // FIGHT OR MAGIC
@@ -93,7 +97,8 @@ function process_player_turn(){
         // Target Selection
         if (has_interacted()) {
             with (obj_target_menu) { active = false; }
-            global.battle_state.turn = BATTLE.FIGHT;
+            global.battle_state.turn = BATTLE.FIGHT_INIT;
+            clear_interact_input();
         }
         else if (has_cancelled()) {
             with (obj_target_menu) { active = false; }
@@ -132,7 +137,7 @@ function initiate_enemy_attack() {
         damage_num.number = attack;
         damage_num.scale = BATTLE_POSITIONS.ENEMY_DAMAGE_SCALE;
     }
-    global.counter = 
+    global.counter = BATTLE_VALUES.ENEMY_POST_ATTACK_TIME;
     change_turn(BATTLE.ENEMY_ATTACK_DIAG);
 }
 
@@ -142,7 +147,7 @@ function inform_enemy_attack() {
 }
 
 function process_enemy_attack(){
-    show_debug_message(battle_state_to_string());
+    //show_debug_message(battle_state_to_string());
     var decay_rate = 1;
     
     if (global.battle_state.attack_damage > 0) {
@@ -155,22 +160,36 @@ function process_enemy_attack(){
     --global.counter;
 }
 
-function process_player_attack(){
-    show_debug_message(battle_state_to_string());
-    var multiplier = 1.5;
-    var attack_value = (5)+(irandom(2)-1);
-    attack_value *= multiplier;
+function initiate_player_attack() {
+    instance_create_depth(BATTLE_POSITIONS.TARGET_X, BATTLE_POSITIONS.TARGET_Y, BATTLE_POSITIONS.TARGET_D, obj_target);
+    with (obj_attack_controller) { event_user(0); }
+    change_turn(BATTLE.FIGHT);
+}
+
+function process_player_attack( ){
+    var atk_score = obj_attack_controller.attack_score;
+    var attack_value = (10*(atk_score/400))+(irandom(2)-1);
     attack_value = round(attack_value);
-    global.battle_state.attack_damage = attack_value;
-    global.battle_state.turn = BATTLE.FIGHT_APPLY;
+    if (atk_score == 400) {
+        play_atk_critical_sound();
+        attack_value *= 2;
+    }
     
-    // Spawn Damage Number
-    var damage_num = instance_create_depth(BATTLE_POSITIONS.PLAYER_DAMAGE_X, 
-    BATTLE_POSITIONS.PLAYER_DAMAGE_Y, 1.0, obj_damage_number);
-    damage_num.number = attack_value;
-    damage_num.scale = BATTLE_POSITIONS.PLAYER_DAMAGE_SCALE;
+    if (!obj_attack_controller.active) {
+        if (atk_score <= 0) attack_value = 0;
+        global.battle_state.attack_damage = attack_value;
+        global.battle_state.turn = BATTLE.FIGHT_APPLY;
+        if (attack_value > 0) {
+            audio_play_sound(snd_damage, 10, false, global.snd_volume);
+        }
+        instance_destroy(obj_target);
+        // Spawn Damage Number
+        var damage_num = instance_create_depth(BATTLE_POSITIONS.PLAYER_DAMAGE_X, 
+        BATTLE_POSITIONS.PLAYER_DAMAGE_Y, 1.0, obj_damage_number);
+        damage_num.number = global.battle_state.attack_damage;
+        damage_num.scale = BATTLE_POSITIONS.PLAYER_DAMAGE_SCALE;
+    }
     
-    audio_play_sound(snd_damage, 10, false, global.snd_volume);
 }
 
 function process_player_attack_apply() {
@@ -194,13 +213,39 @@ function process_player_heal() {
     show_debug_message(battle_state_to_string());
 }
 
+function initiate_win_sequence() {
+    global.counter = BATTLE_VALUES.ENEMY_DEFEAT_WAIT_TIME;
+    global.enemy.alive = false;
+    audio_stop_sound(mus_battle);
+    play_enemy_defeat_sound();
+    play_bat_victory_music();
+    change_turn(BATTLE.VICTOR_WAIT);
+}
+
+function wait_win() {
+    if (global.counter == 0) change_turn(BATTLE.VICTOR_SEQ);
+    --global.counter;
+}
+
+function process_win() {
+    var diag_ins = spawn_dialogue("You have won! Congrats!");
+    diag_ins.skippable = false;
+    diag_ins.queued_event = function() {
+        room_goto(room_floor1_start);
+        global.enemy = obj_enemy;
+        audio_stop_sound(mus_victory);
+    }
+    change_turn(BATTLE.VICTOR_DIALOGUE);
+}
+
 /*
  * Check if the player had just won or lost the battle.
  * Updates turn to BATTLE.VICTOR or BATTLE.LOSS.
  */
 function check_wl_conditions() {
     
-    if (global.battle_state.enemy.hp <= 0) {
+    if (global.battle_state.enemy.hp <= 0 && 
+        global.battle_state.turn < BATTLE.VICTOR) {
         global.battle_state.turn = BATTLE.VICTOR;
     }
     
@@ -244,33 +289,9 @@ function update_hp_values() {
 function change_turn(turn) {
     switch (turn) {
         case BATTLE.PLAYER:
-        global.battle_state.choicer = BATTLE_OPTIONS.FIGHT;
-        global.battle_state.player_select_main = BATTLE_OPTIONS.NONE;
-        global.battle_state.player_select_sub = BATTLE_OPTIONS.NONE;
-        break;
-    case BATTLE.ENEMY:
-        global.battle_state.turn = BATTLE.ENEMY;
-        break;
-    case BATTLE.ENEMY_ATTACK_DIAG:
-        global.battle_state.turn = BATTLE.ENEMY_ATTACK_DIAG;
-        break;
-    case BATTLE.ENEMY_ATTACK_WAIT:
-        global.battle_state.turn = BATTLE.ENEMY_ATTACK_WAIT;
-        break;
-    case BATTLE.ENEMY_ATTACK:
-        global.battle_state.turn = BATTLE.ENEMY_ATTACK;
-        break;
-    case BATTLE.FIGHT:
-        global.battle_state.turn = BATTLE.FIGHT;
-        break;
-    case BATTLE.FIGHT_APPLY:
-        global.battle_state.turn = BATTLE.FIGHT_APPLY;
-        break;
-    case BATTLE.SUPER:
-        global.battle_state.turn = BATTLE.SUPER;
-        break;
-    case BATTLE.HEAL:
-        global.battle_state.turn = BATTLE.HEAL;
+            global.battle_state.choicer = BATTLE_OPTIONS.FIGHT;
+            global.battle_state.player_select_main = BATTLE_OPTIONS.NONE;
+            global.battle_state.player_select_sub = BATTLE_OPTIONS.NONE;
         break;
     }
     

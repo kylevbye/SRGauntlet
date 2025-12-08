@@ -1,0 +1,1 @@
+draw_sprite_ext(spr, 0, x, y, scale, scale, rot, color, alpha);

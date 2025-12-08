@@ -1,4 +1,5 @@
 enum BATTLE {
+    INIT,
     PLAYER,
     ENEMY,
     ENEMY_ATTACK_DIAG,
@@ -11,6 +12,9 @@ enum BATTLE {
     SUPER,
     HEAL,
     VICTOR,
+    VICTOR_WAIT,
+    VICTOR_SEQ,
+    VICTOR_DIALOGUE,
     LOSS
 }
 
@@ -23,10 +27,14 @@ enum BATTLE_OPTIONS {
 }
 
 enum BATTLE_VALUES {
+    LEFT,
+    RIGHT,
     HEAL_COST = 10,
     SUPER_COST = 25,
     PLAYER_POST_ATTACK_TIME = 15,
-    ENEMY_POST_ATTACK_TIME = 15
+    ENEMY_POST_ATTACK_TIME = 15,
+    ENEMY_DEFEAT_DECAY_RATE = 0.1, 
+    ENEMY_DEFEAT_WAIT_TIME = 60,
 }
 
 enum BATTLE_POSITIONS {
@@ -35,11 +43,17 @@ enum BATTLE_POSITIONS {
     ENEMY_DAMAGE_SCALE = 1.8,
     PLAYER_DAMAGE_X = 324,
     PLAYER_DAMAGE_Y = 135,
-    PLAYER_DAMAGE_SCALE = 2.0
+    PLAYER_DAMAGE_SCALE = 2.0,
+    TARGET_X = CONFIG.V_WIDTH*0.5,
+    TARGET_Y = (CONFIG.V_HEIGHT*0.5)+103,
+    TARGET_D = -100,
+    TARGET_MISS_ORG_RIGHT = 100,
+    TARGET_MISS_ORG_LEFT = 540,
+    BAR_START_OFFSET = 185
 }
 
 function BattleControlState() constructor {
-    turn = BATTLE.PLAYER;
+    turn = BATTLE.INIT;
     choicer = BATTLE_OPTIONS.FIGHT;
     player_select_main = BATTLE_OPTIONS.NONE;
     player_select_sub = BATTLE_OPTIONS.NONE;
@@ -47,11 +61,4 @@ function BattleControlState() constructor {
     enemy = global.enemy;
     attack_started = false;
     attack_damage = 0;
-}
-function Test() constructor  {
-    obj = obj_enemy;
-    name = "Test";
-    hp = 100;
-    attack = 2;
-    defense = 5;
 }

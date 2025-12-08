@@ -1,0 +1,13 @@
+spr = spr_attack_bar;
+sub_img = -1;
+x_scale = 1;
+y_scale = 1;
+y_scale_grow_rate = .05;
+rot = 0;
+color = make_colour_rgb(33,209,24)
+alpha = 1.0;
+a_decay_rate = .07;
+decaying = false;
+missed = false;
+origin_side = BATTLE_VALUES.RIGHT;
+x_speed = 10;

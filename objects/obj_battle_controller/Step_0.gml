@@ -1,11 +1,10 @@
-if (!audio_is_playing(mus_battle)) { 
-    audio_play_sound(mus_battle, 30, true, global.mus_volume);
-}
-
 control_player_profile(profile);
 reset_select_states();
 
 switch (global.battle_state.turn) {
+    case BATTLE.INIT: 
+        init_battle();
+        break;
     case BATTLE.PLAYER:
         process_player_turn();
         break;
@@ -21,6 +20,9 @@ switch (global.battle_state.turn) {
     case BATTLE.ENEMY_ATTACK:
         process_enemy_attack();
         break;
+    case BATTLE.FIGHT_INIT:
+        initiate_player_attack();
+        break;
     case BATTLE.FIGHT:
         process_player_attack();
         break;
@@ -34,11 +36,20 @@ switch (global.battle_state.turn) {
         process_player_heal();
         break;
     case BATTLE.LOSS:
-        room_goto(room_intromenu);
+        room_goto(room_gameover);
         break;
     case BATTLE.VICTOR:
-        //
+        initiate_win_sequence();
         break;
+    case BATTLE.VICTOR_WAIT:
+        wait_win();
+        break;
+    case BATTLE.VICTOR_SEQ:
+        process_win();
+        break;
+    case BATTLE.VICTOR_DIALOGUE:
+        break;
+    
 }
 
 update_hp_values();

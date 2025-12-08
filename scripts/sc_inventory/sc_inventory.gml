@@ -83,7 +83,7 @@ function drop_item() {
 
 /**
  * Adds an item to the first empty/null slot in the inventory.
- * @param {obj_item} item Item to add
+ * @param {obdj_item} item Item to add
  */
 function add_to_inventory(item) {
     

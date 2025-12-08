@@ -11,7 +11,7 @@ if (room == room_battle) {
     draw_text(pos_x, pos_y, battle_turn_str);
     
     var battle_state_str = battle_state_to_string();
-    draw_text_ext_transformed(pos_x, pos_y+next_line_offset, 10, )
+    //draw_text_ext_transformed(pos_x, pos_y+next_line_offset, 10, )
 }
 else {
     var g_interact_str = "Global.interact: " + InteractValueToString(global.interact);

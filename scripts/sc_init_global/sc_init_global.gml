@@ -16,7 +16,7 @@ function init_global_values(){
     global.inv_state = INVENTORY_STATE.CLOSED;
     global.item_choicer = ITEM_CHOICE.NONE;
     global.weapon = WEAPON.SWORD1;
-    global.enemy = new Test();
+    global.enemy = obj_enemy;
     global.battle_state = pointer_null;
     global.dialogue = "";
     global.diag_rad = 10;
