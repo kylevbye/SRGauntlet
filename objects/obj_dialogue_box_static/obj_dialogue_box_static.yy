@@ -9,8 +9,8 @@
   "name":"obj_dialogue_box_static",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"unused",
+    "path":"folders/Objects/unused.yy",
   },
   "parentObjectId":null,
   "persistent":false,

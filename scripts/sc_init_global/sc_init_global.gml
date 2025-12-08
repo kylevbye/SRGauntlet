@@ -21,6 +21,8 @@ function init_global_values(){
     global.dialogue = "";
     global.diag_rad = 10;
     global.counter = 0;
+    global.floor = 0;
+    global.loaded_room = room_intromenu;
     
     load_config();
     instantiate_dialogue();

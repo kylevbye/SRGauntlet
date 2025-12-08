@@ -32,8 +32,20 @@ switch (global.battle_state.turn) {
     case BATTLE.SUPER:
         process_player_super();
         break;
+    case BATTLE.SUPER_WAIT:
+        // Do nothing until dialogue is done.
+        break;
+    case BATTLE.SUPER_APPLY:
+        process_player_super_apply();
+        break;
     case BATTLE.HEAL:
         process_player_heal();
+        break;
+    case BATTLE.HEAL_WAIT:
+        // Do nothing until dialogue is done.
+        break;
+    case BATTLE.HEAL_APPLY:
+        process_player_heal_apply();
         break;
     case BATTLE.LOSS:
         room_goto(room_gameover);

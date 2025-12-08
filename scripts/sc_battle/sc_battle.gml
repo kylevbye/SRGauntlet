@@ -71,6 +71,7 @@ function process_player_turn(){
                     if (global.current_mp >= BATTLE_VALUES.HEAL_COST) {
                         with (obj_magic_menu) { active = false; }
                         audio_play_sound(snd_select, 10, false, global.snd_volume);
+                        change_turn(BATTLE.HEAL);
                     }
                     else audio_play_sound(snd_incorrect, 10, false, global.snd_volume);
                     break;
@@ -78,6 +79,7 @@ function process_player_turn(){
                     if (global.current_mp >= BATTLE_VALUES.SUPER_COST) {
                         with (obj_magic_menu) { active = false; }
                         audio_play_sound(snd_select, 10, false, global.snd_volume);
+                        change_turn(BATTLE.SUPER);
                     }
                     else audio_play_sound(snd_incorrect, 10, false, global.snd_volume);
                     break;
@@ -167,22 +169,26 @@ function initiate_player_attack() {
 }
 
 function process_player_attack( ){
-    var atk_score = obj_attack_controller.attack_score;
-    var attack_value = (10*(atk_score/400))+(irandom(2)-1);
-    attack_value = round(attack_value);
-    if (atk_score == 400) {
+    var atk_score_per = calc_attack_score_per(obj_attack_controller.attack_score);
+    var attack_value = (find_attack_power()*atk_score_per)+(irandom(2)-1);
+    if (atk_score_per == 1.0) {
         play_atk_critical_sound();
-        attack_value *= 2;
+        attack_value *= find_attack_crit_mult();
     }
+    attack_value = round(attack_value);
+    
+    global.battle_state.counter_2 = round(7*atk_score_per);
+    if (global.battle_state.counter_2 < 0) global.battle_state.counter_2 = 0;
     
     if (!obj_attack_controller.active) {
-        if (atk_score <= 0) attack_value = 0;
+        if (atk_score_per <= 0) attack_value = 0;
         global.battle_state.attack_damage = attack_value;
         global.battle_state.turn = BATTLE.FIGHT_APPLY;
         if (attack_value > 0) {
             audio_play_sound(snd_damage, 10, false, global.snd_volume);
         }
         instance_destroy(obj_target);
+        
         // Spawn Damage Number
         var damage_num = instance_create_depth(BATTLE_POSITIONS.PLAYER_DAMAGE_X, 
         BATTLE_POSITIONS.PLAYER_DAMAGE_Y, 1.0, obj_damage_number);
@@ -193,24 +199,118 @@ function process_player_attack( ){
 }
 
 function process_player_attack_apply() {
-    //show_debug_message(battle_state_to_string());
     var decay_rate = -1;
     
     if (global.battle_state.attack_damage > 0) {
         global.battle_state.enemy.hp += decay_rate;
         global.battle_state.attack_damage += decay_rate;
     }
-    else {
+    
+    if (global.battle_state.counter_2 > 0) {
+        if (global.current_mp == global.max_mp) {
+            global.battle_state.counter_2 = 0;
+        }
+        else {
+            global.current_mp += 1;
+            global.battle_state.counter_2 -= 1;
+        }
+    }
+    
+    if (global.battle_state.attack_damage <= 0 && global.battle_state.counter_2 <= 0){
         change_turn(BATTLE.ENEMY);
     }
 }
 
 function process_player_super() {
-    show_debug_message(battle_state_to_string());
+    var atk_pow = find_attack_power();
+    var attack_value = atk_pow*3.5 + irandom_range(1,3);
+    attack_value = round(attack_value);
+    global.battle_state.attack_damage = attack_value;
+    global.battle_state.counter_2 = BATTLE_VALUES.SUPER_COST;
+    
+    // Spawn Dialogue that spawns damage numbers and continues the sequence
+    var event = function() {
+        // Spawn Damage Number (purple)
+        var damage_num = instance_create_depth(BATTLE_POSITIONS.PLAYER_DAMAGE_X, 
+        BATTLE_POSITIONS.PLAYER_DAMAGE_Y, 1.0, obj_damage_number);
+        damage_num.number = global.battle_state.attack_damage;
+        damage_num.scale = BATTLE_POSITIONS.PLAYER_DAMAGE_SCALE;
+        damage_num.color = c_purple;
+        audio_play_sound(snd_damage, 10, false, global.snd_volume);
+        change_turn(BATTLE.SUPER_APPLY);
+    }
+    var dia_str = string("YOU SUPER ATTACKED for {0} DMG!", attack_value);
+    var dialogue_ins = spawn_dialogue(dia_str);
+    dialogue_ins.queued_event = event;
+    
+    change_turn(BATTLE.SUPER_WAIT);
+} 
+
+function process_player_super_apply() {
+    
+    // Enemy HP Drain
+    if (global.battle_state.attack_damage > 0) {
+        global.battle_state.enemy.hp -= 1;
+        global.battle_state.attack_damage -= 1;
+    }
+    // MP Drain
+    if (global.battle_state.counter_2 > 0) {
+        global.current_mp -= 1;
+        global.battle_state.counter_2 -= 1;
+    }
+    
+    if (global.battle_state.attack_damage <= 0 && global.battle_state.counter_2 <= 0) {
+        change_turn(BATTLE.ENEMY);
+    }
+    
 }
 
 function process_player_heal() {
-    show_debug_message(battle_state_to_string());
+    // Randomly heal in range 30-50
+    var heal_amount = irandom_range(30, 50);
+    randomise();
+    global.battle_state.counter = heal_amount;
+    global.battle_state.counter_2 = BATTLE_VALUES.HEAL_COST;
+    
+    // Spawn Dialogue that spawns damage numbers and continues the sequence
+    var event = function() {
+        // Spawn Damage Number (green)
+        var damage_num = instance_create_depth(BATTLE_POSITIONS.ENEMY_DAMAGE_X, 
+        BATTLE_POSITIONS.ENEMY_DAMAGE_Y, 1.0, obj_damage_number);
+        damage_num.number = global.battle_state.counter;
+        damage_num.scale = BATTLE_POSITIONS.ENEMY_DAMAGE_SCALE;
+        damage_num.color = c_lime;
+        audio_play_sound(snd_heal2, 10, false, global.snd_volume);
+        change_turn(BATTLE.HEAL_APPLY);
+    }
+    var dia_str = string("YOU healed for {0} HP!", heal_amount);
+    var dialogue_ins = spawn_dialogue(dia_str);
+    dialogue_ins.queued_event = event;
+    audio_play_sound(snd_heal1, 10, false, global.snd_volume);
+    change_turn(BATTLE.HEAL_WAIT);
+}
+
+function process_player_heal_apply() {
+    
+    if (global.battle_state.counter > 0) {
+        if (global.current_hp == global.max_hp) {
+            global.battle_state.counter = 0;
+        }
+        else {
+            global.current_hp += 1;
+            global.battle_state.counter -= 1;
+        }
+    }
+    
+    if (global.battle_state.counter_2 > 0) {
+        global.current_mp -= 1;
+        global.battle_state.counter_2 -= 1;
+    }
+    
+    if (global.battle_state.counter <= 0 && global.battle_state.counter_2 <= 0) {
+        change_turn(BATTLE.ENEMY);
+    }
+    
 }
 
 function initiate_win_sequence() {
@@ -231,8 +331,7 @@ function process_win() {
     var diag_ins = spawn_dialogue("You have won! Congrats!");
     diag_ins.skippable = false;
     diag_ins.queued_event = function() {
-        room_goto(room_floor1_start);
-        global.enemy = obj_enemy;
+        instance_create_layer(0, 0, "Instances", obj_battle_out_transitioner);
         audio_stop_sound(mus_victory);
     }
     change_turn(BATTLE.VICTOR_DIALOGUE);
@@ -296,6 +395,70 @@ function change_turn(turn) {
     }
     
     global.battle_state.turn = turn;
+}
+
+function find_attack_power() {
+    var value = 1;
+    switch (global.weapon) {
+    	case WEAPON.NONE:
+            value = 3;
+            break;
+        case WEAPON.SWORD1:
+            value = 5;
+            break;
+        case WEAPON.SWORD2:
+            value = 10;
+            break;
+        case WEAPON.SWORD3:
+            value = 15;
+            break;
+        
+    }
+    
+    return value;
+}
+
+function  find_attack_crit_mult() {
+    var mult = 1.0;
+    
+    switch (global.weapon) {
+    	case WEAPON.NONE:
+            mult = 1.5;
+            break;
+        case WEAPON.SWORD1:
+            mult = 1.75;
+            break;
+        case WEAPON.SWORD2:
+            mult = 2;
+            break;
+        case WEAPON.SWORD3:
+            mult = 3;
+            break;
+        
+    }
+    
+    return mult;
+}
+
+function calc_attack_score_per(attack_score) {
+    var score_max = 100;
+    
+    switch (global.weapon) {
+        case WEAPON.NONE:
+            score_max = 100;
+            break;
+        case WEAPON.SWORD1:
+            score_max = 100;
+            break;
+        case WEAPON.SWORD2:
+            score_max = 300;
+            break;
+        case WEAPON.SWORD3:
+            score_max = 400;
+            break;
+    }
+    
+    return attack_score/score_max;
 }
 
 function battle_state_to_string() {

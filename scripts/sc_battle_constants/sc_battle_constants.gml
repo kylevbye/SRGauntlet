@@ -10,7 +10,11 @@ enum BATTLE {
     FIGHT_WAIT,
     FIGHT_APPLY,
     SUPER,
+    SUPER_WAIT,
+    SUPER_APPLY,
     HEAL,
+    HEAL_WAIT,
+    HEAL_APPLY,
     VICTOR,
     VICTOR_WAIT,
     VICTOR_SEQ,
@@ -61,4 +65,6 @@ function BattleControlState() constructor {
     enemy = global.enemy;
     attack_started = false;
     attack_damage = 0;
+    counter = 0;
+    counter_2 = 0;
 }

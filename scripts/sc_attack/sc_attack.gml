@@ -3,8 +3,24 @@ global.ATTACK_PATTERNS = {
     NONE: [
         [0]
     ],
-    // ~ Burnt Pan
+    // ~ Toy Knife
     SWORD1: [
+        [0]
+    ],
+    // Ballet Shows
+    SWORD2: [
+        [0, 5, 13],
+        [0, 5, 15],
+        [0, 5, 10],
+        [0, 8, 10],
+        [0, 8, 12],
+        [0, 8, 7],
+        [0, 10, 8],
+        [0, 10, 10],
+        [0, 10, 5]
+    ],
+    // ~ Burnt Pan
+    SWORD3: [
         [0, 5, 13, 7],
         [0, 5, 15, 5],
         [0, 5, 10, 10],
@@ -26,6 +42,14 @@ function generate_attack_bars() {
     switch (global.weapon) {
         case WEAPON.SWORD1:
             attack_patterns = global.ATTACK_PATTERNS.SWORD1;
+            org_side = BATTLE_VALUES.LEFT;
+            break;
+        case WEAPON.SWORD2:
+            attack_patterns = global.ATTACK_PATTERNS.SWORD2;
+            org_side = BATTLE_VALUES.LEFT;
+            break;
+        case WEAPON.SWORD3:
+            attack_patterns = global.ATTACK_PATTERNS.SWORD3;
             org_side = BATTLE_VALUES.RIGHT;
             break;
         default:
@@ -38,14 +62,15 @@ function generate_attack_bars() {
     var attack_pattern = attack_patterns[pattern_index];
     var pos_x = BATTLE_POSITIONS.TARGET_X;
     var offset = BATTLE_POSITIONS.BAR_START_OFFSET;
-    if (org_side == BATTLE_VALUES.LEFT) offset *= -1;
-    pos_x += offset;
+    var sign_x = 1;
+    if (org_side == BATTLE_VALUES.LEFT) sign_x = -1;
+    pos_x += offset*sign_x;
     for (var i = 0; i<array_length(attack_pattern); ++i) {
         var pos_y = BATTLE_POSITIONS.TARGET_Y;
         
         var attack_bar = instance_create_depth(pos_x, pos_y, 0, obj_attack_bar);
         attack_bar.origin_side = org_side;
-        attack_bar.x += attack_bar.x_speed*attack_pattern[i];
+        attack_bar.x += attack_bar.x_speed*attack_pattern[i]*sign_x;
         pos_x = attack_bar.x;
         array_push(attack_bars, attack_bar);
     }

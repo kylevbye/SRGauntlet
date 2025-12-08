@@ -1,25 +1,26 @@
-function get_weapon_string(_weapon_value) {
-    return_str = "";
-    
+function get_weapon_to_obj(_weapon_value) {
+    return_obj = pointer_null
     switch (_weapon_value) {
-        case WEAPON.NONE:
-            return_str = "NONE";
-            break;
         case WEAPON.SWORD1:
-            return_str = "B. Sword";
+            return_obj = obj_sword1;
             break;
         case WEAPON.SWORD2:
-            return_str = "ADV Sword";
+            return_obj = obj_sword2;
             break;
         case WEAPON.SWORD3:
-            return_str = "ULT Sword";
+            return_obj = obj_sword3;
             break;
         default:
-            return_str = "ERROR";
+            return_obj = obj_stick;
             break;
     }
     
-    return return_str;
+    return return_obj;
+}
+function get_weapon_string(_weapon_value) {
+    var wname = "";
+    with (get_weapon_to_obj(_weapon_value)) { wname = name; }
+    return wname;
 }
 
 function get_weapon_sprite(_weapon_value) {

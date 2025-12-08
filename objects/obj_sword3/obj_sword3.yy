@@ -1,17 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"obj_writer",
+  "%Name":"obj_sword3",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_writer",
+  "name":"obj_sword3",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"item",
+    "path":"folders/Objects/item.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_item",
+    "path":"objects/obj_item/obj_item.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -29,7 +33,13 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
-  "spriteMaskId":null,
+  "spriteId":{
+    "name":"spr_sword3",
+    "path":"sprites/spr_sword3/spr_sword3.yy",
+  },
+  "spriteMaskId":{
+    "name":"spr_sword3",
+    "path":"sprites/spr_sword3/spr_sword3.yy",
+  },
   "visible":true,
 }

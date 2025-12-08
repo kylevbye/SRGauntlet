@@ -3,7 +3,6 @@ draw_set_color(c_black);
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
 
-show_debug_message(alpha);
 if (alpha < 0) alpha = 0;
 draw_set_alpha(alpha);
 

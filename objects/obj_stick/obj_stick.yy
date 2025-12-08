@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_writercreator",
+  "%Name":"obj_stick",
   "eventList":[],
   "managed":true,
-  "name":"obj_writercreator",
+  "name":"obj_stick",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"item",
+    "path":"folders/Objects/item.yy",
   },
   "parentObjectId":null,
   "persistent":false,

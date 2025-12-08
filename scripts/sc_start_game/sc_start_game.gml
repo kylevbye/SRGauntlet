@@ -20,4 +20,6 @@ function load_game_values() {
     global.battle_state = pointer_null;
     global.diag_rad = 10;
     global.counter = 0;
+    global.floor = 1;
+    global.loaded_room = room_floor1_start;
 }

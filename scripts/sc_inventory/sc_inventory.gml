@@ -9,13 +9,13 @@ function initialize_inventory() {
     
     // If debug mode is active, the game will start with the following items:
     // 1.) PostCard
-    // 2.) Heal 1
-    // 3.) Speed?
+    // 2.) Sword2
+    // 3.) Sword3
     
     if (global.debug) {
-        for (i = 0; i<3; ++i) {
-            add_to_inventory(obj_postcard);
-        }
+        add_to_inventory(obj_postcard);
+        add_to_inventory(obj_sword2);
+        add_to_inventory(obj_sword3);
     }
 }
 

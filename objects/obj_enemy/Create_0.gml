@@ -1,4 +1,3 @@
-//stats = new Test();
 // Stats
 name = "Test";
 hp = 100;

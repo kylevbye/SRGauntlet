@@ -2,10 +2,11 @@
 if (global.debug) {
     if (keyboard_check_pressed(vk_space)) global.interact = INTERACT.NONE;
         
-    if (keyboard_check_pressed(ord("M"))) room_goto(room_battle);
+    if (keyboard_check_pressed(ord("M"))) {
+        instance_create_layer(0, 0, "Instances", obj_battle_transitioner);
+    }
         
     if (keyboard_check_pressed(ord("L"))) {
-        //show_debug_message(global.dialogue);
         spawn_dialogue(global.dialogue.general.test);
     }
 }

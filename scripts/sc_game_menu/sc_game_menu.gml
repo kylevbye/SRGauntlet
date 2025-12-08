@@ -90,7 +90,7 @@ function get_weapon() {
 }
 
 function calc_attack() {
-    return "10";
+    return find_attack_power();
 }
 
 function calc_defense () {
