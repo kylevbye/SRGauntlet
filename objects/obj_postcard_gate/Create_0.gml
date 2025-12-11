@@ -1,0 +1,1 @@
+array_push(obj_player.tilemap_collide, self);

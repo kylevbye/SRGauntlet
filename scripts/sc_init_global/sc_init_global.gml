@@ -3,7 +3,7 @@ function init_global_values(){
     global.mus_volume = 0.5;
     global.snd_volume = 0.5;
     global.interact = INTERACT.NONE;
-    global.debug = true;
+    global.debug = false;
     global.entrance = ENTRANCE.NONE;
     global.current_hp = 50;
     global.max_hp = 50;
@@ -23,6 +23,8 @@ function init_global_values(){
     global.counter = 0;
     global.floor = 0;
     global.loaded_room = room_intromenu;
+    global.plot = pointer_null;
+    global.step = 0;
     
     load_config();
     instantiate_dialogue();

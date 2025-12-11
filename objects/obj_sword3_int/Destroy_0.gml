@@ -1,0 +1,1 @@
+array_delete(obj_player.tilemap_collide, array_get_index(obj_player.tilemap_collide, self), 1);

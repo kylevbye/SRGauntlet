@@ -1,6 +1,11 @@
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
+// Debug
+layer_set_visible("Map_Elements", global.debug);
+layer_set_visible("Tile_Collision", global.debug);
+
+
 // Game Menu
 if (menu_open_flag()) {
     

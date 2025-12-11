@@ -12,7 +12,6 @@
     {"name":"inst_685FD35F","path":"rooms/room_floor1_hallway_u1/room_floor1_hallway_u1.yy",},
     {"name":"inst_30E9E381","path":"rooms/room_floor1_hallway_u1/room_floor1_hallway_u1.yy",},
     {"name":"inst_5E0F5ACF","path":"rooms/room_floor1_hallway_u1/room_floor1_hallway_u1.yy",},
-    {"name":"inst_6F11EACB","path":"rooms/room_floor1_hallway_u1/room_floor1_hallway_u1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -28,7 +27,6 @@
         {"$GMRInstance":"v4","%Name":"inst_279947F7_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_279947F7_1","objectId":{"name":"obj_marker_b","path":"objects/obj_marker_b/obj_marker_b.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":390.0,"y":369.0,},
         {"$GMRInstance":"v4","%Name":"inst_685FD35F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_685FD35F","objectId":{"name":"obj_marker_d","path":"objects/obj_marker_d/obj_marker_d.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":390.0,"y":730.0,},
         {"$GMRInstance":"v4","%Name":"inst_30E9E381","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_30E9E381","objectId":{"name":"obj_door_b","path":"objects/obj_door_b/obj_door_b.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0,"scaleY":1.5,"x":360.0,"y":790.0,},
-        {"$GMRInstance":"v4","%Name":"inst_6F11EACB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6F11EACB","objectId":{"name":"obj_overworld_controller","path":"objects/obj_overworld_controller/obj_overworld_controller.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":20.0,"y":80.0,},
       ],"layers":[],"name":"Map_Elements","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tile_Collision","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tile_Collision","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":60,"SerialiseWidth":40,"TileCompressedData":[
           -11,0,1,-2147483648,-13,0,-15,-2147483648,-11,0,3,-2147483648,0,-2147483648,-11,0,-15,-2147483648,-11,

@@ -1,4 +1,4 @@
-if (has_interacted() && interactable) {
+if (has_interacted() && interactable && global.interact == INTERACT.NONE) {
     var interact_region = obj_player_interact.interact_region;
     
     show_debug_message("px:{0} py:{1} x1:{2} y1:{3} x2:{4} y2:{5}", x, y, 

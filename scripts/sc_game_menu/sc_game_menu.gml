@@ -8,7 +8,7 @@ function menu_open_flag() {
 /// Game Menu
 /// 
 function open_game_menu() {
-    clear_interact_input();
+    //clear_interact_input();
     audio_play_sound(snd_menu, 10, false, global.snd_volume);
     global.interact = INTERACT.GAME_MENU;
 
@@ -31,7 +31,7 @@ function close_game_menu() {
 /// 
 function open_inv() {
     show_debug_message("open_inv()");
-    audio_play_sound(snd_select, 10, false, global.snd_volume);
+    play_select_sound();
     
     clear_interact_input();
     
@@ -58,6 +58,8 @@ function close_inv() {
 
 function open_inv_item() {
     clear_interact_input();
+    
+    play_select_sound();
 
     show_debug_message("open_inv_item()");
     global.inv_state = INVENTORY_STATE.ITEM;

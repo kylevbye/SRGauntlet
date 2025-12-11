@@ -9,6 +9,7 @@ function equip_weapon () {
     // INFO
     var equip_str = string("You have equipped the {0}! {1}", name, unique_equip_str);
     var dialogue_instance = spawn_dialogue(equip_str);
+    play_equip_sound();
 
     dialogue_instance.restore_interact_state = function () {
         global.interact = INTERACT.NONE;

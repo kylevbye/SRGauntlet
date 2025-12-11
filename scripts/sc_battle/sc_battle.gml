@@ -1,5 +1,6 @@
 function init_battle() {
-    play_bat_music();
+    if (global.enemy != obj_boss1 && global.enemy != obj_boss2) play_bat_music();
+    else play_boss_music()
     change_turn(BATTLE.PLAYER);
 }
 
@@ -317,6 +318,7 @@ function initiate_win_sequence() {
     global.counter = BATTLE_VALUES.ENEMY_DEFEAT_WAIT_TIME;
     global.enemy.alive = false;
     audio_stop_sound(mus_battle);
+    audio_stop_sound(mus_boss);
     play_enemy_defeat_sound();
     play_bat_victory_music();
     change_turn(BATTLE.VICTOR_WAIT);

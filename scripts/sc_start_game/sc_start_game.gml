@@ -22,4 +22,11 @@ function load_game_values() {
     global.counter = 0;
     global.floor = 1;
     global.loaded_room = room_floor1_start;
+    
+    // plot
+    if (global.plot != pointer_null) instance_destroy(obj_plot);
+    global.plot = instance_create_depth(0, 0, 0, obj_plot);
+    
+    // Timer
+    with (obj_speedrun) { event_user(0); }
 }

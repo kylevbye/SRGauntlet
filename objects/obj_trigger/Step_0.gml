@@ -1,6 +1,4 @@
-if (!instance_exists(obj_player)) {
-    return;
-}
+if (!instance_exists(obj_player)) return;
 
 var left_x = obj_player.bbox_left;
 var right_x = obj_player.bbox_right;

@@ -14,3 +14,6 @@ global.loaded_room = room;
 audio_stop_all();
 play_encounter_sound();
 room_set_persistent(room, true);
+room_persistent = true;
+
+queued_event = function() {}

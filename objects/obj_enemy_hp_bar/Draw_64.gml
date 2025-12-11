@@ -10,5 +10,6 @@ if (centered) {
     y2 = y+(height/2);
 }
 
+max_value = global.enemy.max_hp;
 draw_healthbar(x1, y1, x2, y2, round((current_value/max_value)*100), 
 back_color, min_color, max_color, direction_val, show_back, show_border);

@@ -9,6 +9,20 @@ if (global.debug) {
     if (keyboard_check_pressed(ord("L"))) {
         spawn_dialogue(global.dialogue.general.test);
     }
+    if (keyboard_check_pressed(vk_subtract)) {
+        room_goto(room_gameover);
+    }
+}
+
+
+if (keyboard_check(vk_alt) && keyboard_check_pressed(vk_backspace)) {
+    global.debug = true;
+    global.sr_mode = false;
+    play_select_sound();
+}
+
+if (keyboard_check(vk_home)) {
+    game_restart();
 }
 
 
@@ -31,6 +45,8 @@ else if (_prev_y > y) facing_direction = DIRECTION.UP;
 else if (_prev_y < y) facing_direction = DIRECTION.DOWN;
 else is_moving = false;
 
+if (is_moving) global.step += 1;
+    
 // In Game Menu
 if (has_menu_toggled()) {
     if (global.interact == INTERACT.NONE) {

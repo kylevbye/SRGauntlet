@@ -17,3 +17,31 @@ function play_encounter_sound() {
 function play_enemy_defeat_sound() {
     audio_play_sound(snd_enemy_defeat, 10, false, global.snd_volume);
 }
+
+function play_item_pickup_sound() {
+    audio_play_sound(snd_item_pickup, 10, false, global.snd_volume);
+}
+
+function play_secret_sound() {
+    audio_play_sound(snd_secret, 10, false, global.snd_volume);
+}
+
+function play_equip_sound() {
+    audio_play_sound(snd_equip, 10, false, global.snd_volume);
+}
+
+function play_select_sound() {
+    audio_play_sound(snd_select, 10, false, global.snd_volume);
+}
+
+function play_heal1_sound() {
+    audio_play_sound(snd_heal1, 10, false, global.snd_volume);
+}
+
+function play_heal2_sound() {
+    audio_play_sound(snd_heal2, 10, false, global.snd_volume);
+}
+
+function play_spotted_sound() {
+    audio_play_sound(snd_spotted, 10, false, global.snd_volume);
+}

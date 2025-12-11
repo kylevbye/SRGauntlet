@@ -5,10 +5,16 @@ draw_set_valign(fa_center);
 
 draw_set_font(ins_font);
 
-// go label
+// ins label
 draw_text_ext_transformed(ins_pos_x, ins_pos_y, ins_text, l_sep, l_width, ins_scale, ins_scale, l_rot);
 
-// ins label
+// sr label
+if (global.sr_mode) {
+    var sr_text = ellapsed_time_to_string();
+    draw_text_ext_transformed(sr_pos_x, sr_pos_y, sr_text, l_sep, l_width, sr_scale, sr_scale, l_rot);
+}
+
+// go label
 draw_text_ext_transformed(gol_pos_x, gol_pos_y, gol_text, l_sep, l_width, gol_scale, gol_scale, l_rot);
 
 /// Reset

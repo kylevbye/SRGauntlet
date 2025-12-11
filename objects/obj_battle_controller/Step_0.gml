@@ -48,6 +48,10 @@ switch (global.battle_state.turn) {
         process_player_heal_apply();
         break;
     case BATTLE.LOSS:
+        room_set_persistent(global.loaded_room, false);
+        room_goto(global.loaded_room)
+        room_set_persistent(global.loaded_room, false);
+        room_persistent = false;
         room_goto(room_gameover);
         break;
     case BATTLE.VICTOR:

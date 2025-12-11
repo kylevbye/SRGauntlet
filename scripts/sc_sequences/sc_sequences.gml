@@ -4,3 +4,9 @@ function knight1_scripted_encounter(){
         instance_destroy();
     }
 }
+
+function random_encounter() {
+    if (counter == 30) {
+        instance_destroy();
+    }
+}

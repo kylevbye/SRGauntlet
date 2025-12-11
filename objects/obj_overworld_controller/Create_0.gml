@@ -85,3 +85,6 @@ game_item_menu_item_offset_y = game_item_menu_y+(game_item_menu_height*0.18);
 // INV Label
 menu_inv_text_first_offset = 12.5;
 menu_inv_text_offset = 35;
+
+layer_set_visible("Map_Elements", global.debug);
+layer_set_visible("Tile_Collision", global.debug);

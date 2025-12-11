@@ -1,7 +1,7 @@
 width = 200;
 height = 20;
-current_value = 100;
-max_value = 100;
+current_value = global.enemy.hp;
+max_value = global.enemy.max_hp;
 back_color = c_black;
 min_color = c_red;
 max_color = c_green;
