@@ -3,7 +3,7 @@ function init_global_values(){
     global.mus_volume = 0.5;
     global.snd_volume = 0.5;
     global.interact = INTERACT.NONE;
-    global.debug = false;
+    global.debug = true;
     global.entrance = ENTRANCE.NONE;
     global.current_hp = 50;
     global.max_hp = 50;

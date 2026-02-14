@@ -28,4 +28,4 @@ restore_interact_state = function() {
     global.interact = INTERACT.NONE;
 };
 
-queued_event = function() {}
+queued_event = function() { }
