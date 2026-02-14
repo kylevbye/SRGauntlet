@@ -5,9 +5,11 @@ Speedrun J-RPG Gauntlet
 [Demo v1.0 Showcase](https://youtu.be/MjVKEVy4j1g)
 
 ## Project Documents
-[Inital Project Idea Document](doc/ProjectIdea.pdf)
-[Project Proposal](doc/ProjectProposal-KVB.pdf)
-[Project Tracker Workbook](doc/ProjectTrackerWorkbook-KVB.xlsx)
+[Inital Project Idea Document](docs/ProjectIdea.pdf)
+
+[Project Proposal](docs/ProjectProposal-KVB.pdf)
+
+[Project Tracker Workbook](docs/ProjectTrackerWorkbook-KVB.xlsx)
 
 ## Project Description
 Undertale is one of the most influential games within the Japanese Role-Playing Game (J-RPG) genre. While known for its masterful execution of its story, music, and atmosphere, it unintentionally gained fame in the speedrunning community due to a few oversights made in the game’s design. The most influential oversight is the punch card interaction, which allows players to regain movement at any point, even in scenarios where the player’s movement is supposed to be restricted. The Punch Card Exploit (PCE) can be abused to skip many cutscenes and battles resulting in the game’s any % speedrun category being completable in under an hour.
