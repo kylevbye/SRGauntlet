@@ -2,7 +2,8 @@
 Speedrun J-RPG Gauntlet
 
 ## Showcase
-[Demo v1.0 Showcase](https://youtu.be/MjVKEVy4j1g)
+[![Watch the video](https://img.youtube.com/vi/MjVKEVy4j1g/maxresdefault.jpg)](https://youtu.be/MjVKEVy4j1g)
+### [ J-RPG Speedrun Gauntlet Showcase](https://youtu.be/MjVKEVy4j1g)
 
 ## Project Documents
 [Inital Project Idea Document](docs/ProjectIdea.pdf)
